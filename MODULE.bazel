@@ -1,0 +1,13 @@
+module(
+    name = "com_github_oakad_gazelle_issue_2022_dep",
+)
+
+bazel_dep(name = "rules_go", version = "0.54.0")
+bazel_dep(name = "gazelle", version = "0.43.0")
+
+go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk", dev_dependency = True)
+go_sdk.host()
+
+go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
+go_deps.from_file(go_mod = "//:go.mod")
+

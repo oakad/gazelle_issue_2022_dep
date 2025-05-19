@@ -1,0 +1,8 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+	name = "lib",
+	srcs = glob(["*.go"]),
+	importpath = "github.com/oakad/gazelle_issue_2022_dep/lib",
+	visibility = ["//visibility:public"],
+)
